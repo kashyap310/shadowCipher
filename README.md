@@ -58,4 +58,4 @@ deactivate
 6. request for socks
 '''
 pip install requests[socks]
-'''# RJPOLICE_HACK_473_Imperial_11
+'''
