@@ -46,16 +46,15 @@ pip install -r requirements.txt
 ```
 
 4. Add modules to the requirements
-'''
+```
 pip freeze > requirements.txt
-'''
+```
 5. deactivate after done
-'''
+```
 deactivate
-
-'''
+```
 
 6. request for socks
-'''
+```
 pip install requests[socks]
-'''
+```
