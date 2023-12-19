@@ -10,9 +10,10 @@ project_root/
 |
 |-- gateways/
 |   |-- tor/
-|   |   |-- tor_gateway.py        # Python script for Tor gateway
-|   |   |-- tor_utils.py          # Shared utility functions for Tor
-|   |   |-- tor_crawler.py        # Python crawler specific to Tor
+|   |   |-- tor_gateway.py         # Python script for Tor gateway
+|   |   |-- tor_utils.py           # Shared utility functions for Tor
+|   |   |-- ahima_site_fetcher.py  # fetch sites based on query
+|   |   |-- tor_searcher.py        # Python crawler specific to Tor
 |   |
 |   |-- i2p/
 |   |   |-- i2p_gateway.py        # Python script for I2P gateway
