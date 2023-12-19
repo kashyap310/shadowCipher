@@ -30,6 +30,14 @@ The task is to develop a tool that could search for keywords across dark net sea
 5. Tool which could identify a seller of any product and provide ways to track down the person. It should be able to gather/crawl details about all websites, chat rooms, shopping sites & other information related to dark web. It should be a handy intelligence and data collection tool on the dark web.
 6. Web archive time-based proxy with easy User interface for access, Geolocation identification, TOR Keyword Search, Dark Web Crawlers. 
 
+
+### Project Structure
+[Here](/doc/modified_structure.md) we mentioned our current project structure
+
+### [Setup](/doc/project_setup.md) the initial project
+
+
+
 ### Setting up project
 1. environment setup
 ```
