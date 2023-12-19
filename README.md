@@ -32,28 +32,27 @@ The task is to develop a tool that could search for keywords across dark net sea
 
 ### Setting up project
 1. environment setup
-'''
+```
 python -m venv venv 
-'''
+```
 2. Activate environment
-'''
+```
 source venv/bin/activate   # On Linux/macOS 
 venv\Scripts\activate      # On Windows
-'''
+```
 3. install dependency
-'''
+```
 pip install -r requirements.txt
-'''
+```
 
 4. Add modules to the requirements
-'''
+```
 pip freeze > requirements.txt
-'''
+```
 5. deactivate after done
-'''
+```
 deactivate
-
-'''
+```
 
 6. Install request module for socks
 ```
