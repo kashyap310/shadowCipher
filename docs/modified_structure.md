@@ -1,5 +1,6 @@
 Here's a modified structure:
 
+```
 plaintext
 project_root/
 |-- web_app/
@@ -27,7 +28,9 @@ project_root/
 |   |-- common_utils.py           # Shared utility functions not specific to gateways
 |
 |-- requirements.txt              # Dependencies file
-|-- main.py                       # Main script to coordinate the entire project
+|-- main.py                       # Main script to 
+```
+coordinate the entire project
 
 
 Explanation:
