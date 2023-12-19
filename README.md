@@ -33,5 +33,5 @@ The task is to develop a tool that could search for keywords across dark net sea
 ---
 ## Solution
 
-1. [Project Structure](/doc/modified_structure.md)
-2. [Project Setup](/doc/project_setup.md) 
+1. [Project Structure](/docs/modified_structure.md)
+2. [Project Setup](/docs/project_setup.md) 
