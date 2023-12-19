@@ -31,38 +31,7 @@ The task is to develop a tool that could search for keywords across dark net sea
 6. Web archive time-based proxy with easy User interface for access, Geolocation identification, TOR Keyword Search, Dark Web Crawlers. 
 
 
-### Project Structure
-[Here](/doc/modified_structure.md) we mentioned our current project structure
-
-### [Setup](/doc/project_setup.md) the initial project
-
-
-
-### Setting up project
-1. environment setup
-```
-python -m venv venv 
-```
-2. Activate environment
-```
-source venv/bin/activate   # On Linux/macOS 
-venv\Scripts\activate      # On Windows
-```
-3. install dependency
-```
-pip install -r requirements.txt
-```
-
-4. Add modules to the requirements
-```
-pip freeze > requirements.txt
-```
-5. deactivate after done
-```
-deactivate
-```
-
-6. Install request module for socks
-```
-pip install requests[socks]
-```
+##Solution
+---
+### [Project Structure](/doc/modified_structure.md)
+### [Project Setup](/doc/project_setup.md) 
