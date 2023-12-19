@@ -33,7 +33,7 @@ def torSearcher(input_csv_path):
 
                     filename = f"html.csv"
 
-                    full_path = os.path.join("Html", filename)
+                    full_path = os.path.join("Crawled_data", filename)
                     directory = os.path.dirname(full_path)
 
                     if not os.path.exists(directory):
