@@ -55,7 +55,7 @@ deactivate
 
 '''
 
-6. request for socks
-'''
+6. Install request module for socks
+```
 pip install requests[socks]
-'''
+```
