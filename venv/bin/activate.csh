@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/home/mint/Desktop/d-web/DWeb-Monitoring-Tool/venv"
+setenv VIRTUAL_ENV "/home/ubuntu/Desktop/Dark-web-tool/DWeb-Monitoring/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
