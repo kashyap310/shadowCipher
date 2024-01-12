@@ -1,12 +1,68 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            {%block title%}
-            {%endblock%}
-        </title>
-    </head>
-    <body>
-        {%block content%}
-        {%endblock%}
-    </body>
+
+<head>
+    <title>
+        {% block title %}
+        Dark web Monitor
+        {% endblock %}
+    </title>
+
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif; /* Set a default font family */
+        }
+
+        .navbar {
+           
+            height: 100vh; /* Make the navbar take the full height of the viewport */
+            width: 200px; /* Set the width of the navbar */
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed; /* Fix the navbar position */
+            left: 0; /* Position the navbar on the left side */
+            top: 10vh; /* Position the navbar at the top */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px 0; /* Add padding to the links for better spacing */
+            border-bottom: 1px solid #444; /* Add a border between links */
+        }
+
+        .navbar a:hover {
+            background-color: #333; /* Change background color on hover */
+        }
+
+        .content {
+            margin-left: 200px; /* Adjust the margin to make room for the navbar */
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">Monitor</h1>
+    <div class="navbar">
+        <a href="{{ url_for("dashboard") }}">Dashboard</a>
+        <a href="{{ url_for("query_analysis") }}">Query Analysis </a>
+        <a href="{{ url_for("pawn") }}">Pawned???</a>
+        <a href="{{ url_for("webarchive") }}">  </a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
 </html>

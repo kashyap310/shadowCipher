@@ -3,6 +3,7 @@ from browser.onion_visit import *
 from connection.tor import *
 from database.database import *
 from analysis.analysis import *
+from web.functions import *
 import click
 import sys
 import os
