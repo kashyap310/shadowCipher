@@ -15,7 +15,7 @@ def postgre_connect(host='localhost', database='master', user='postgres', passwo
         }
 
         if connection is None or connection.closed != 0:
-            print('Connecting to PostgreSQL database...')
+           # print('Connecting to PostgreSQL database...')
             connection = psycopg2.connect(**connection_params)
 
         # Set connection parameters
@@ -103,7 +103,7 @@ def postgre_close_connection():
     try:
         if connection is not None and connection.closed == 0:
             connection.close()
-            print('Database connection closed.')
+           # print('Database connection closed.')
     except (Exception, psycopg2.DatabaseError) as error:
         print(f'Error closing connection: {error}')
 

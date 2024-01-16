@@ -3,7 +3,6 @@ from browser.onion_visit import *
 from connection.tor import *
 from database.database import *
 from analysis.analysis import *
-from web.functions import *
 import click
 import sys
 import os
@@ -39,16 +38,16 @@ def print_logo(text):
     print(f"{hacker_color_code}{text}{reset_code}")
 
 logo = r'''
-▓█████▄  ▄▄▄       ██▀███   ██ ▄█▀    █     █░▓█████  ▄▄▄▄       ███▄ ▄███▓ ▒█████   ███▄    █  ██▓▄▄▄█████▓ ▒█████   ██▀███  
-▒██▀ ██▌▒████▄    ▓██ ▒ ██▒ ██▄█▒    ▓█░ █ ░█░▓█   ▀ ▓█████▄    ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒
-░██   █▌▒██  ▀█▄  ▓██ ░▄█ ▒▓███▄░    ▒█░ █ ░█ ▒███   ▒██▒ ▄██   ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒
-░▓█▄   ▌░██▄▄▄▄██ ▒██▀▀█▄  ▓██ █▄    ░█░ █ ░█ ▒▓█  ▄ ▒██░█▀     ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒░██░░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  
-░▒████▓  ▓█   ▓██▒░██▓ ▒██▒▒██▒ █▄   ░░██▒██▓ ░▒████▒░▓█  ▀█▓   ▒██▒   ░██▒░ ████▓▒░▒██░   ▓██░░██░  ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒
- ▒▒▓  ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░▒ ▒▒ ▓▒   ░ ▓░▒ ▒  ░░ ▒░ ░░▒▓███▀▒   ░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ░▓    ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░
- ░ ▒  ▒   ▒   ▒▒ ░  ░▒ ░ ▒░░ ░▒ ▒░     ▒ ░ ░   ░ ░  ░▒░▒   ░    ░  ░      ░  ░ ▒ ▒░ ░ ░░   ░ ▒░ ▒ ░    ░      ░ ▒ ▒░   ░▒ ░ ▒░
- ░ ░  ░   ░   ▒     ░░   ░ ░ ░░ ░      ░   ░     ░    ░    ░    ░      ░   ░ ░ ░ ▒     ░   ░ ░  ▒ ░  ░      ░ ░ ░ ▒    ░░   ░ 
-   ░          ░  ░   ░     ░  ░          ░       ░  ░ ░                ░       ░ ░           ░  ░               ░ ░     ░     
- ░                                                         ░                                                                  
+  ▓█████▄  ▄▄▄       ██▀███   ██ ▄█▀    █     █░▓█████  ▄▄▄▄       ███▄ ▄███▓ ▒█████   ███▄    █  ██▓▄▄▄█████▓ ▒█████   ██▀███  
+  ▒██▀ ██▌▒████▄    ▓██ ▒ ██▒ ██▄█▒    ▓█░ █ ░█░▓█   ▀ ▓█████▄    ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒
+  ░██   █▌▒██  ▀█▄  ▓██ ░▄█ ▒▓███▄░    ▒█░ █ ░█ ▒███   ▒██▒ ▄██   ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒
+  ░▓█▄   ▌░██▄▄▄▄██ ▒██▀▀█▄  ▓██ █▄    ░█░ █ ░█ ▒▓█  ▄ ▒██░█▀     ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒░██░░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  
+  ░▒████▓  ▓█   ▓██▒░██▓ ▒██▒▒██▒ █▄   ░░██▒██▓ ░▒████▒░▓█  ▀█▓   ▒██▒   ░██▒░ ████▓▒░▒██░   ▓██░░██░  ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒
+   ▒▒▓  ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░▒ ▒▒ ▓▒   ░ ▓░▒ ▒  ░░ ▒░ ░░▒▓███▀▒   ░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ░▓    ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░
+   ░ ▒  ▒   ▒   ▒▒ ░  ░▒ ░ ▒░░ ░▒ ▒░     ▒ ░ ░   ░ ░  ░▒░▒   ░    ░  ░      ░  ░ ▒ ▒░ ░ ░░   ░ ▒░ ▒ ░    ░      ░ ▒ ▒░   ░▒ ░ ▒░
+   ░ ░  ░   ░   ▒     ░░   ░ ░ ░░ ░      ░   ░     ░    ░    ░    ░      ░   ░ ░ ░ ▒     ░   ░ ░  ▒ ░  ░      ░ ░ ░ ▒    ░░   ░ 
+     ░          ░  ░   ░     ░  ░          ░       ░  ░ ░                ░       ░ ░           ░  ░               ░ ░     ░     
+   ░                                                         ░                                                                  
 
 '''
 
@@ -159,28 +158,51 @@ def search_engine(query,engine):
             '''
     postgre_close_connection()
 
-@click.command()
+@click.command(help="Start the spyder for fetching urls")
 @click.option("--timeout",default=10,help="Request timeout time")
 def demospyder(timeout):
+     postgre_connect()
      console_spyder = Console()
+     console_spyder.print(f"[cyan]-------------------------------")
+     console_spyder.print(f"[cyan]|    Going through each url   |")
+     console_spyder.print(f"[cyan]-------------------------------")
+     print("\n")
      '''
-     ###################
+     ####################
       URL should be real
      ######################
      '''
-     with console_spyder.status("",spinner="aesthetic") as status:
-                i=0
-                while (i<100):
+     onion_sites = execute_query("SELECT url,id FROM master_table")
+     with console_spyder.status("",spinner="aesthetic"):
+                for sites in onion_sites:
                     status_code = random.randint(1,100)
-                    print("URL ",i)
+                    print(onion_sites[sites[1]])
                     if status_code%2==0:
                         time.sleep(timeout)
-                        console_spyder.print(f"[red] Error during request")
+                        console_spyder.print(f"[red] Error during request\n")
                     else:
                         time.sleep(5)
-                        console_spyder.print(f"[green] Adding to DB")
-                    i+=1
+                        console_spyder.print(f"[green] Adding to DB\n")
+     postgre_close_connection()
                     
+@click.command(help="Find your email on the dark web!!!")
+@click.option("--email",required =True,help="Email for find match from database")
+def pawn(email):
+     postgre_connect()
+     console_pawn = Console()
+     emaildata=execute_query("SELECT email FROM analytic_table")    
+     email_list=[]
+     for i in range(0,len(emaildata)):
+          email_list.extend(emaildata[i][0].split(","))
+     with console_pawn.status("[yellow1]Finding from the Darkweb database",spinner="dots12"):
+        time.sleep(7)
+        console_pawn.print(f"[aquamarine3]Your Email : {email}")
+        if(email in email_list):
+            console_pawn.print(f"[salmon1]Status     : Your email has been pawn !!!!\n")
+        else:
+            console_pawn.print(f"[gold1]Status     : You are Safe :) \n")     
+
+     postgre_close_connection()
 
 
 def site_process():
@@ -218,6 +240,7 @@ def viewContent():
 
 commandList.add_command(search_engine)
 commandList.add_command(demospyder)
+commandList.add_command(pawn)
 if  __name__ == "__main__":
     clear_console ()   
     commandList()
