@@ -12,6 +12,7 @@ from rich.table import Table
 
 QUERY = ["Arms","Carding","Drugs","Hacker","Murder"]
 BROWSER = ["Ahima","Torch"]
+MONTH = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 '''
     function return type:
@@ -205,6 +206,23 @@ def pawn(email):
      postgre_close_connection()
 
 
+@click.command(help="Web archive")
+@click.option("--month",type=click.Choice(MONTH),prompt="(default comparison with Jan) Month",help="Choose a month from: {}".format(','.join(MONTH)))
+def web_archive(month):
+    console = Console()
+    postgre_connect()
+    cmp_month = "jan_data"
+   #f query =execute_query(f"SELECT url FROM web_archive WHERE {cmp_month} IS NOT NULL AND {month} IS NOT NULL AND {cmp_month} <> {month};")
+    with console.status(" [bright_cyan]Collecting results from database..",spinner="grenade") as status:
+         i=5
+         while(i>0):
+              time.sleep(1)
+              i-=1 
+    console.print(f"  [bright_cyan]{month} Data need to be collected")
+    postgre_close_connection()
+     
+
+
 def site_process():
     postgre_connect()
     console = Console()
@@ -241,6 +259,7 @@ def viewContent():
 commandList.add_command(search_engine)
 commandList.add_command(demospyder)
 commandList.add_command(pawn)
+commandList.add_command(web_archive)
 if  __name__ == "__main__":
     clear_console ()   
     commandList()

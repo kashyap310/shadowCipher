@@ -66,15 +66,29 @@ def create_table():
         );
     """
     create_web_archive_table="""
-    CREATE TABLE IF NOT EXISTS web_archive(
-        
-    )
+    CREATE TABLE IF NOT EXISTS web_archive (
+            url TEXT,
+            jan_data TEXT,
+            feb_data TEXT,
+            mar_data TEXT,
+            apr_data TEXT,
+            may_data TEXT,
+            jun_data TEXT,
+            jul_data TEXT,
+            aug_data TEXT,
+            sep_data TEXT,
+            oct_data TEXT,
+            nov_data TEXT,
+            dec_data TEXT
+);
+
     """
     execute_query(create_master_table_query)
     print('Table master created successfully.')
     execute_query(create_analytics_table_query)
     print('Table  analytical created successfully.')
-
+    execute_query(create_web_archive_table)
+    print("Web archive table created")
 
 def list_all_tables(database='master'):
     list_tables_query = f"""
@@ -108,7 +122,7 @@ def postgre_close_connection():
         print(f'Error closing connection: {error}')
 
 # # Example use
-#postgre_connect()
+postgre_connect()
 #drop_table("master_table")
 #drop_table("analytic_table")
 #create_table()
@@ -116,4 +130,5 @@ def postgre_close_connection():
 # # Close the connection when done
 #execute_query("ALTER TABLE master_table ADD COLUMN id SERIAL PRIMARY KEY;")
 #execute_query("ALTER TABLE master_table DROP COLUMN id ")
-#postgre_close_connection()
+execute_query("INSERT INTO web_archive (url, jan_data) SELECT url, result FROM master_table;")
+postgre_close_connection()
