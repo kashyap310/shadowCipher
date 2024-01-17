@@ -52,3 +52,9 @@ python3 src/main.py --help
 5. Database
 
 >Find the proper installation process of POSTGRESQL database from offcial documentation and configure parameters into the  database.ini file
+
+### Upcoming features
+1. Real time alerting
+2. Wide range of Qurey types and customizable database
+3. Web archive (Time based) with HTML and snapshot  (on going...)
+4. Pawn tool : protect privacy and find data breaches (improving..)
